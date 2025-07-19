@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tradez.Shared", "Tradez.Sha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tradez.Maui", "Tradez.Maui\Tradez.Maui.csproj", "{B2D5A6AC-4FFB-4C15-BDE6-0AF00FD01A91}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tradez.ServiceLayer", "Tradez.ServiceLayer\Tradez.ServiceLayer.csproj", "{04CB8070-F841-4F24-840A-0345D8C95757}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tradez.Application", "Tradez.ServiceLayer\Tradez.Application.csproj", "{04CB8070-F841-4F24-840A-0345D8C95757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tradez.Domain", "Tradez.Domain\Tradez.Domain.csproj", "{50E01B29-EAB8-4D3E-8E3D-3711E3DD09B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tradez.Domain", "Tradez.Domain\Tradez.Domain.csproj", "{50E01B29-EAB8-4D3E-8E3D-3711E3DD09B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
