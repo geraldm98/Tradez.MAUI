@@ -1,0 +1,94 @@
+﻿## Build output
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+## User-specific
+*.user
+*.userosscache
+*.suo
+*.vscode/
+*.DS_Store
+*.swp
+*.tmp
+*.log
+
+## Rider-specific
+.idea/
+*.sln.iml
+
+## Visual Studio-specific
+.vs/
+.vscode/
+
+## Mac-specific
+*.DS_Store
+
+## Windows-specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## JetBrains Rider
+.idea/
+
+## Resharper
+_ReSharper*/
+*.DotSettings.user
+
+## MAUI platform-specific
+**/Platforms/Android/.caches/
+**/Platforms/Android/obj/
+**/Platforms/Android/bin/
+**/Platforms/iOS/obj/
+**/Platforms/iOS/bin/
+**/Platforms/MacCatalyst/obj/
+**/Platforms/MacCatalyst/bin/
+**/Platforms/Windows/obj/
+**/Platforms/Windows/bin/
+
+## NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+
+## Xamarin/macOS archives
+*.xcuserstate
+*.xcworkspace/
+*.xcodeproj/
+*.xcuserdata/
+*.xcconfig
+*.ipa
+*.app
+*.dSYM.zip
+*.dSYM
+
+## Dotnet CLI artifacts
+project.assets.json
+project.lock.json
+artifacts/
+
+## Local Tools
+.localtoolmanifest.json
+
+## SQLite or app data files (if used in MAUI app)
+*.db
+*.db-shm
+*.db-wal
+
+## Others
+*.apk
+*.apks
+*.aab
+*.exe
+*.dll
+*.pdb
+*.cache
+*.class
+*.jar
+*.dex
+*.keystore
