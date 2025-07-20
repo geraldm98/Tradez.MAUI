@@ -65,7 +65,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Tradez.ServiceLayer\Tradez.Application.csproj" />
+      <ProjectReference Include="..\Tradez.UseCases\Tradez.UseCases.csproj" />
       <ProjectReference Include="..\Tradez.Shared\Tradez.Shared.csproj" />
     </ItemGroup>
 

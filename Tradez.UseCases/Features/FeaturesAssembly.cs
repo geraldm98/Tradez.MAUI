@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tradez.Application.Services
+namespace Tradez.UseCases.Features
 {
-    public class ServicesAssembly
+    public class FeaturesAssembly
     {
     }
 }

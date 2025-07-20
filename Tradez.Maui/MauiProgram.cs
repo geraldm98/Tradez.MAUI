@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-using Tradez.ServiceLayer.Features;
-using Tradez.ServiceLayer.Services;
+using Tradez.UseCases.Features;
+using Tradez.UseCases.Services;
 using Tradez.Shared.DependencyInjection;
-using Tradez.Shared.Mediator;
+using Tradez.Shared.Messaging;
 
 namespace Tradez.Maui
 {
