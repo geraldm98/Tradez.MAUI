@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using Tradez.UseCases.Features;
 using Tradez.UseCases.Services;
 using Tradez.Shared.DependencyInjection;
-using Tradez.Shared.Messaging;
 
 namespace Tradez.Maui
 {
@@ -28,7 +27,7 @@ namespace Tradez.Maui
                 logger: logger
             );
 
-            builder.Services.AddMediatorServices(typeof(FeaturesAssembly).Assembly);
+            builder.Services.AddMediator(typeof(FeaturesAssembly).Assembly);
 
             builder.Services.AddMauiBlazorWebView();
 

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+
+using Tradez.Shared.Messaging.Abstractions;
+using Tradez.Shared.Messaging;
 
 namespace Tradez.Shared.DependencyInjection;
 
@@ -25,9 +29,9 @@ public sealed class RegisterInAttribute(params string[] environments) : Attribut
     public string[] Environments { get; } = environments;
 }
 
-public static class ServiceRegistrationHelper
+public static class ConfigureServices
 {
-    public static void AddAttributedServices(this IServiceCollection services, Assembly assembly, string? @namespace = null, IHostEnvironment? env = null, ILogger? logger = null)
+    public static void AddAttributedServices(this IServiceCollection services, Assembly assembly, string @namespace = null, IHostEnvironment env = null, ILogger logger = null)
     {
         var allTypes = assembly.GetTypes()
             .Where(t => t.IsClass && !t.IsAbstract && t.GetCustomAttributes().Any());
@@ -79,5 +83,34 @@ public static class ServiceRegistrationHelper
         if (type.GetCustomAttribute<SingletonServiceAttribute>() != null)
             return ServiceLifetime.Singleton;
         return null;
+    }
+
+    public static void AddMediator(this IServiceCollection services, Assembly assembly)
+    {
+        services.AddSingleton<IMediator, Mediator>();
+        var types = assembly.GetTypes();
+
+        foreach (var type in types)
+        {
+            if (type.IsAbstract || type.IsInterface) continue;
+
+            var interfaces = type.GetInterfaces();
+
+            foreach (var iface in interfaces)
+            {
+                if (iface.IsGenericType)
+                {
+                    var def = iface.GetGenericTypeDefinition();
+                    if (def == typeof(IRequestHandler<,>) || def == typeof(INotificationHandler<>))
+                    {
+                        services.AddTransient(iface, type);
+                    }
+                    else if (def == typeof(IPipelineBehavior<,>))
+                    {
+                        services.AddTransient(typeof(IPipelineBehavior<,>), type);
+                    }
+                }
+            }
+        }
     }
 }

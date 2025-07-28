@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tradez.UseCases.Services
 {
-    public interface ICoinGeckoService
+    public interface ICoinMarketCapService
     {
 
     }
