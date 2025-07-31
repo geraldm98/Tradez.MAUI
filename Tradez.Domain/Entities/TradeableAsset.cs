@@ -10,7 +10,7 @@ using Tradez.Domain.Common.ValueObjects;
 
 namespace Tradez.Domain.Entities
 {
-    internal abstract class TradeableAsset : ITradeableAsset
+    internal abstract class TradeableAsset : Entity, ITradeableAsset
     {
         public abstract AssetTypes AssetType { get; }
         public string Symbol { get; set; }

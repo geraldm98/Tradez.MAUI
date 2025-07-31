@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tradez.Shared.Exceptions
+namespace Tradez.Domain.Common.ValueObjects
 {
-    public class DomainException(string message) : Exception(message)
-    {
 
-    }
+    public record WalletBalance(string Symbol, decimal Amount);
 }
