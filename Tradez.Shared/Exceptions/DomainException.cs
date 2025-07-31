@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tradez.Shared.Exceptions
 {
-    public class DomainException(string message) : Exception(message)
+    public abstract class DomainException(string message) : Exception(message)
     {
 
     }

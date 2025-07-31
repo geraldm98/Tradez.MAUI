@@ -11,6 +11,7 @@ namespace Tradez.Domain.Common.Enums
         Pending,
         Executed,
         Cancelled,
+        Completed,
         Failed
     }
 }

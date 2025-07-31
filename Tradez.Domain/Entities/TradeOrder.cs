@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Tradez.Domain.Abstractions;
 using Tradez.Domain.Common.Enums;
+using Tradez.Domain.Errors;
 using Tradez.Shared.Exceptions;
 
 namespace Tradez.Domain.Entities
@@ -31,24 +32,24 @@ namespace Tradez.Domain.Entities
         public void ValidateRiskRules(decimal entryPrice)
         {
             if (StopLoss is not null && StopLoss <= 0)
-                throw new DomainException("Stop loss must be greater than 0.");
+                throw new InvalidTradeOrderException("Stop loss must be greater than 0.");
 
             if (TakeProfit is not null && TakeProfit <= 0)
-                throw new DomainException("Take profit must be greater than 0.");
+                throw new InvalidTradeOrderException("Take profit must be greater than 0.");
 
             if (Type == TradeTypes.Buy)
             {
                 if (StopLoss is not null && StopLoss >= entryPrice)
-                    throw new DomainException("Stop loss must be below entry price for buy orders.");
+                    throw new InvalidTradeOrderException("Stop loss must be below entry price for buy orders.");
                 if (TakeProfit is not null && TakeProfit <= entryPrice)
-                    throw new DomainException("Take profit must be above entry price for buy orders.");
+                    throw new InvalidTradeOrderException("Take profit must be above entry price for buy orders.");
             }
             else if (Type == TradeTypes.Sell)
             {
                 if (StopLoss is not null && StopLoss <= entryPrice)
-                    throw new DomainException("Stop loss must be above entry price for sell orders.");
+                    throw new InvalidTradeOrderException("Stop loss must be above entry price for sell orders.");
                 if (TakeProfit is not null && TakeProfit >= entryPrice)
-                    throw new DomainException("Take profit must be below entry price for sell orders.");
+                    throw new InvalidTradeOrderException("Take profit must be below entry price for sell orders.");
             }
         }
     }
