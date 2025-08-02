@@ -12,5 +12,7 @@ namespace Tradez.Domain.Entities
     {
         public override AssetTypes AssetType => AssetTypes.ForexPair;
 
+        public override string Symbol => $"{BaseAsset.Symbol}/{QuoteAsset.Symbol}";
+        public override string Name => $"{BaseAsset.Name} > {QuoteAsset.Name}";
     }
 }

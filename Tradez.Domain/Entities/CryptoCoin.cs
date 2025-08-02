@@ -12,14 +12,20 @@ namespace Tradez.Domain.Entities
 {
     internal class CryptoCoin : TradeableAsset
     {
+        private string _symbol = string.Empty;
+        private string _name = string.Empty;
+
+        public override string Symbol => _symbol;
+        public override string Name => _name;
+
         public override AssetTypes AssetType => AssetTypes.CryptoCoin;
 
-        public static CryptoCoin Create(string symbol = "btc", string name = "bitcoin")
+        public static CryptoCoin Create(string symbol = "btc", string name = "Bitcoin")
         {
             return new CryptoCoin
             {
-                Name = name,
-                Symbol = symbol.ToUpper(),
+                _symbol = symbol.ToUpper(),
+                _name = name,
                 Metadata = AssetMetadata.Default,
                 AnalysisHistory = []
             };

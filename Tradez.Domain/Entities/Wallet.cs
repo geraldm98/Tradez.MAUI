@@ -15,6 +15,6 @@ namespace Tradez.Domain.Entities
         public string OwnerId { get; set; } = string.Empty; // Keycloak user ID
         public string Provider { get; set; } = string.Empty; // e.g., Kraken, Coinbase
         public DateTime? LastSynced { get; set; }
-        public List<WalletBalance> Balances { get; set; } = new();
+        public List<WalletBalance> Balances { get; set; } = [];
     }
 }

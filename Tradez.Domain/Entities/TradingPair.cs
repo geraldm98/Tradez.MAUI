@@ -11,6 +11,8 @@ namespace Tradez.Domain.Entities
     {
         public ITradeableAsset BaseAsset { get; set; } = default!;
         public ITradeableAsset QuoteAsset { get; set; } = default!;
-        public string Pair => $"{BaseAsset.Symbol}/{QuoteAsset.Symbol}";
+        public override string Symbol => $"{BaseAsset.Symbol}/{QuoteAsset.Symbol}";
+        public override string Name => $"{BaseAsset.Name} to {QuoteAsset.Name}";
+        public string Pair => Symbol;
     }
 }
