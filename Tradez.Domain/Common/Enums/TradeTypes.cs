@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tradez.Shared.Exceptions
+namespace Tradez.Domain.Common.Enums
 {
-    public abstract class DomainException(string message) : Exception(message)
+    public enum TradeTypes
     {
-
+        Buy,
+        Sell
     }
 }

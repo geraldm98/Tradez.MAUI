@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tradez.Domain.Abstractions
 {
-    internal interface ITradingPair
+    internal interface ITradingPair : ITradeableAsset
     {
-        string BaseAsset { get; }
-        string QuoteAsset { get; }
-        string BaseSymbol { get; }
-        string QuoteSymbol { get; } 
-
+        ITradeableAsset BaseAsset { get; }
+        ITradeableAsset QuoteAsset { get; }
+        string Pair { get; }
     }
 }

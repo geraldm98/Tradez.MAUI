@@ -10,11 +10,11 @@ using Tradez.Domain.Common.ValueObjects;
 
 namespace Tradez.Domain.Entities
 {
-    internal abstract class TradeableAsset : ITradeableAsset
+    internal abstract class TradeableAsset : Entity, ITradeableAsset
     {
         public abstract AssetTypes AssetType { get; }
-        public string Symbol { get; set; }
-        public string Name { get; set; }
+        public abstract string Symbol { get; }
+        public abstract string Name { get; }
         public AssetMetadata Metadata { get; set; }
         public List<ITradeAnalysis> AnalysisHistory { get; set; } = [];
         IReadOnlyList<ITradeAnalysis> ITradeableAsset.AnalysisHistory => AnalysisHistory;
