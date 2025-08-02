@@ -13,6 +13,7 @@ namespace Tradez.Domain.Entities
 {
     public class TradeOrder : Entity, ITradeOrder
     {
+        public Guid WalletId { get; set; }
         public TradeTypes Type { get; set; } // Buy or Sell
         public string Symbol { get; set; } = string.Empty;
         public decimal Quantity { get; set; }
