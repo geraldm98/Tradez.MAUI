@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Tradez.Shared.Messaging.Abstractions.Events;
+
 namespace Tradez.Domain.Entities
 {
     public abstract class Entity
@@ -13,11 +15,16 @@ namespace Tradez.Domain.Entities
         public DateTime UpdatedAt { get; protected set; }
         public bool IsDeleted { get; protected set; }
 
+        private readonly List<IDomainEvent> _domainEvents = [];
+        public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
         public void MarkUpdated()
         {
             UpdatedAt = DateTime.UtcNow;
         }
 
         public void Delete() => IsDeleted = true;
+        public void AddDomainEvent(IDomainEvent @event) => _domainEvents.Add(@event);
+        public void ClearDomainEvents() => _domainEvents.Clear();
     }
 }
