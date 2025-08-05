@@ -7,7 +7,7 @@ using Tradez.Domain.Abstractions;
 
 namespace Tradez.Domain.Entities
 {
-    internal abstract class TradingPair : TradeableAsset, ITradingPair
+    public abstract class TradingPair : TradeableAsset, ITradingPair
     {
         public ITradeableAsset BaseAsset { get; set; } = default!;
         public ITradeableAsset QuoteAsset { get; set; } = default!;
