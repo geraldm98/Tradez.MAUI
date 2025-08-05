@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tradez.Domain.Abstractions
 {
-    internal interface ITradingPair : ITradeableAsset
+    public interface ITradingPair : ITradeableAsset
     {
         ITradeableAsset BaseAsset { get; }
         ITradeableAsset QuoteAsset { get; }

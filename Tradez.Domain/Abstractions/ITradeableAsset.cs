@@ -9,7 +9,7 @@ using Tradez.Domain.Common.ValueObjects;
 
 namespace Tradez.Domain.Abstractions
 {
-    internal interface ITradeableAsset
+    public interface ITradeableAsset
     {
         string Symbol { get; }
         string Name { get; }

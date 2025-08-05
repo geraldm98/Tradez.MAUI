@@ -8,7 +8,7 @@ using Tradez.Domain.Common.Enums;
 
 namespace Tradez.Domain.Entities
 {
-    internal class ForexPair : TradingPair
+    public class ForexPair : TradingPair
     {
         public override AssetTypes AssetType => AssetTypes.ForexPair;
 

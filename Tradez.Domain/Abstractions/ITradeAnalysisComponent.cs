@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tradez.Domain.Abstractions
 {
-    internal interface ITradeAnalysisComponent
+    public interface ITradeAnalysisComponent
     {
         bool IsPlaceholder { get; }
     }

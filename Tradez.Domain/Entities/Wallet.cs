@@ -10,13 +10,30 @@ namespace Tradez.Domain.Entities
 {
     public class Wallet : Entity
     {
-        public string Address { get; set; } = string.Empty; // public blockchain address
-        public string ExternalId { get; set; } // provider-specific ID
-        public string OwnerId { get; set; } = string.Empty; // Keycloak user ID
-        public string Provider { get; set; } = string.Empty; // e.g., Kraken, Coinbase
-        public DateTime? LastSynced { get; set; }
+        private string _address = string.Empty;
 
-        public List<WalletBalance> Balances { get; set; } = [];
-        public List<TradeOrder> TradeOrders { get; set; } = [];
+        public string Address => _address; // read-only outside
+        public string OwnerId { get; private set; } = string.Empty;
+        public string Provider { get; private set; } = string.Empty;
+
+        public List<WalletBalance> Balances { get; private set; } = [];
+        public List<TradeOrder> TradeOrders { get; private set; } = [];
+
+        public DateTime? LastSynced { get; private set; }
+
+        // Factory method to ensure validation
+        public static Wallet Create(string address, string ownerId, string provider)
+        {
+            if (string.IsNullOrWhiteSpace(address)) throw new ArgumentException("Wallet address is required.");
+            if (string.IsNullOrWhiteSpace(ownerId)) throw new ArgumentException("Owner ID is required.");
+            if (string.IsNullOrWhiteSpace(provider)) throw new ArgumentException("Provider is required.");
+
+            return new Wallet
+            {
+                _address = address.Trim(),
+                OwnerId = ownerId,
+                Provider = provider
+            };
+        }
     }
 }

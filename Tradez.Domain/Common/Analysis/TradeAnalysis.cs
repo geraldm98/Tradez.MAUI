@@ -9,7 +9,7 @@ using Tradez.Domain.Common.Enums;
 
 namespace Tradez.Domain.Common.Analysis
 {
-    internal class TradeAnalysis : ITradeAnalysis
+    public class TradeAnalysis : ITradeAnalysis
     {
         public static TradeAnalysis CreateEmpty()
         {

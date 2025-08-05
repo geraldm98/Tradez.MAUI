@@ -10,7 +10,7 @@ using Tradez.Domain.Common.ValueObjects;
 
 namespace Tradez.Domain.Entities
 {
-    internal class CryptoCoin : TradeableAsset
+    public class CryptoCoin : TradeableAsset
     {
         private string _symbol = string.Empty;
         private string _name = string.Empty;

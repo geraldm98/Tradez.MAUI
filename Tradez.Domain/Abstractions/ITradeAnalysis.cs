@@ -8,7 +8,7 @@ using Tradez.Domain.Common.Enums;
 
 namespace Tradez.Domain.Abstractions
 {
-    internal interface ITradeAnalysis
+    public interface ITradeAnalysis
     {
         T GetComponentByType<T>() where T : class, ITradeAnalysisComponent;
         void SetComponentByType<T>(T component) where T : class, ITradeAnalysisComponent;

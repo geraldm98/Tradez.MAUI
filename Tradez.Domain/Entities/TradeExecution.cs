@@ -9,9 +9,9 @@ namespace Tradez.Domain.Entities
 {
     public class TradeExecution : Entity, ITradeExecution
     {
-        public Guid OrderId { get; set; }
-        public decimal ExecutedQuantity { get; set; }
-        public decimal ExecutedPrice { get; set; }
-        public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+        public Guid OrderId { get; init; }
+        public decimal ExecutedQuantity { get; init; }
+        public decimal ExecutedPrice { get; init; }
+        public DateTime Timestamp { get; init; } = DateTime.UtcNow;
     }
 }
