@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Tradez.Domain.Common.ValueObjects;
+using Tradez.Domain.Events;
 
 namespace Tradez.Domain.Entities
 {
@@ -28,12 +29,17 @@ namespace Tradez.Domain.Entities
             if (string.IsNullOrWhiteSpace(ownerId)) throw new ArgumentException("Owner ID is required.");
             if (string.IsNullOrWhiteSpace(provider)) throw new ArgumentException("Provider is required.");
 
-            return new Wallet
+            var wallet = new Wallet
             {
                 _address = address.Trim(),
                 OwnerId = ownerId,
                 Provider = provider
             };
+
+            wallet.AddDomainEvent(new WalletCreated(wallet.Id));
+
+            return wallet;
+
         }
     }
 }

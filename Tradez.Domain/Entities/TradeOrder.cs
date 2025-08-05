@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Tradez.Domain.Abstractions;
 using Tradez.Domain.Common.Enums;
 using Tradez.Domain.Errors;
+using Tradez.Domain.Events;
 using Tradez.Shared.Exceptions;
 
 namespace Tradez.Domain.Entities
@@ -60,6 +61,7 @@ namespace Tradez.Domain.Entities
             };
 
             order.ValidateRiskRules(limitPrice ?? 0);
+            order.AddDomainEvent(new TradeOrderPlaced(order.Id));
             return order;
         }
 
