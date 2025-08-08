@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Tradez.Shared.Kernel;
+
 using Tradez.Domain.Common.ValueObjects;
 using Tradez.Domain.Events;
 

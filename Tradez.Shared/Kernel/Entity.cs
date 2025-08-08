@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tradez.Shared.Kernel.Events.Abstractions;
 
-using Tradez.Shared.Messaging.Abstractions.Events;
-
-namespace Tradez.Domain.Entities
+namespace Tradez.Shared.Kernel
 {
     public abstract class Entity
     {

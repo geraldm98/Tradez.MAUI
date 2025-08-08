@@ -8,6 +8,7 @@ using Tradez.Domain.Abstractions;
 using Tradez.Domain.Common.Enums;
 using Tradez.Domain.Errors;
 using Tradez.Domain.Events;
+using Tradez.Shared.Kernel;
 using Tradez.Shared.Exceptions;
 
 namespace Tradez.Domain.Entities
