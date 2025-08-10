@@ -28,6 +28,7 @@ namespace Tradez.Maui
             );
 
             builder.Services.AddMediator(typeof(FeaturesAssembly).Assembly);
+            builder.Services.AddApplicationServices();
 
             builder.Services.AddMauiBlazorWebView();
 

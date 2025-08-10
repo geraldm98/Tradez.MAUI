@@ -11,6 +11,9 @@ using Microsoft.Extensions.Logging;
 
 using Tradez.Shared.Messaging.Abstractions;
 using Tradez.Shared.Messaging;
+using Tradez.Shared.Kernel.Events.Abstractions;
+using Tradez.Shared.Kernel.Events;
+using Tradez.Shared.Messaging.Context;
 
 namespace Tradez.Shared.DependencyInjection;
 
@@ -112,5 +115,13 @@ public static class ConfigureServices
                 }
             }
         }
+    }
+
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    {
+        services.AddScoped<IRequestContextAccessor, RequestContextAccessor>();
+        services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
+
+        return services;
     }
 }
